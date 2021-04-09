@@ -60,7 +60,7 @@ begin
     yaxis!(fig_gradient, "gradiant of linear fit")
     xaxis!(fig_gradient, "N")
 
-    xticks!(fig_gradient, [10^i for i in 4:13])
+    xticks!(fig_gradient, [10^i for i in 2:13])
 
     plot!(fig_gradient, legend=false, xaxis=:log10, dpi=300)
 end
@@ -80,9 +80,17 @@ begin
     xaxis!(fig_sixtothirty, "N")
 
     xticks!(fig_sixtothirty, [10^i for i in 4:13])
+    # yticks!(fig_sixtothirty, vcat([1], collect(0:5:25)))
+    # yticks!(fig_sixtothirty, 0:5:25)
+
+    ylims!(fig_sixtothirty, (0, ylims(fig_sixtothirty)[2]))
+
+    # hline!(fig_sixtothirty, [1], line=(:dot, :black))
 
     plot!(fig_sixtothirty, legend=false, xaxis=:log10, dpi=300)
 end
+
+
 
 
 # save plots to disk
